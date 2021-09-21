@@ -16,6 +16,7 @@
 package org.jitsi.videobridge.stats;
 
 import org.jetbrains.annotations.*;
+import org.jitsi.nlj.rtcp.*;
 import org.jitsi.nlj.stats.*;
 import org.jitsi.nlj.transform.node.incoming.*;
 import org.jitsi.utils.*;
@@ -607,6 +608,7 @@ public class VideobridgeStatistics
             unlockedSetStat(
                     MUCS_JOINED,
                     xmppConnection.getMucClientManager().getMucJoinedCount());
+            unlockedSetStat("endpoints_with_spurious_remb", RembHandler.Companion.endpointsWithSpuriousRemb());
         }
         finally
         {
